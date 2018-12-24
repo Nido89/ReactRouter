@@ -2,18 +2,33 @@ import React from 'react';
 
 import { 
     BrowserRouter as Router,
-     Route,
-      Link 
+     Route
     } from 'react-router-dom';
     import App from './App';
+    import About from './About';
+    import Navbar from './Navbar';
+    import Contact from './Contact';
+    import createBrowserHistory from 'history/createBrowserHistory';
 
 
-    const customRoutes = () =>{
+    const customHistory = createBrowserHistory ();
 
 
-        <Router>
+
+
+
+    const CustomRoutes = () =>(
+
+
+        <Router history= {customHistory}>
+
             <div>
-                <Route path='/' component={App} />
+             <Navbar/>
+
+
+                <Route exact path='/' component={App} />
+                <Route path='/about' component={About} />
+                <Route path='/Contact/:id' component={Contact} />
                 {/* <Route path='/about' component={about} /> */}
 
 
@@ -32,6 +47,6 @@ import {
 
 
 
-    }
+)
 
-    export default customRoutes;
+    export default CustomRoutes;
